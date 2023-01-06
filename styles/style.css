@@ -27,6 +27,11 @@ html {
 body {
   font-family: "Fira Sans Condensed", sans-serif;
   background-color: var(--clr-white);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
 }
 
 /* global css */
@@ -42,4 +47,61 @@ a {
 
 li {
   list-style: none;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--clr-caribbean-green);
+  padding-bottom: 1.5rem;
+}
+
+.para {
+  font-size: 1rem;
+  font-size: 400;
+  padding-bottom: 1.5rem;
+}
+
+.section-one,
+.section-two {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+
+.select {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.button-section {
+  text-align: center;
+}
+
+.btn {
+  padding: 8px 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  color: var(--clr-white);
+  background-color: var(--clr-caribbean-green);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text {
+  font-size: 1.2rem;
+  padding-top: 0.8rem;
+  color: var(--clr-caribbean-green);
+}
+
+.input {
+  border: none;
+  font-size: 1.5rem;
 }
