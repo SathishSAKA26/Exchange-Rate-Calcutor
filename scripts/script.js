@@ -16,10 +16,15 @@ const url =
 
 // Function
 function calculate() {
-  const currencyOne = currencyOwoEl.value;
+  const currencyOne = currencyOneEl.value;
   const currencyTwo = currencyTwoEl.value;
 
-  fetch(url + `${currencyOne}`).then(rep);
+  fetch(url + `${currencyOne}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const rate = data.conversion_rates[currencyTwo];
+      rateEl.innerText = `1 ${currencyOne} = ${rate} ${currencyTwo}`;
+    });
 }
 
 // AddEventListener
