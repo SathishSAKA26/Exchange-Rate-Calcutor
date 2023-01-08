@@ -23,10 +23,19 @@ function calculate() {
     .then((response) => response.json())
     .then((data) => {
       const rate = data.conversion_rates[currencyTwo];
-      rateEl.innerText = `1 ${currencyOne} = ${rate} ${currencyTwo}`;
+      rateEl.innerText = `1 ${currencyOne} = ${rate.toFixed(2)} ${currencyTwo}`;
+      amountTwoEl.value = (amountOneEl.value * rate).toFixed(2);
     });
 }
 
 // AddEventListener
 
+btnSwap.addEventListener("click", () => {
+  const temp = currencyOneEl.value;
+  currencyOneEl.value = currencyTwoEl.value;
+  currencyTwoEl.value = temp;
+  calculate();
+});
+
+calculate();
 // Initial value
