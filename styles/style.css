@@ -49,6 +49,10 @@ li {
   list-style: none;
 }
 
+.main-container {
+  width: 95%;
+}
+
 .title {
   font-size: 2rem;
   font-weight: 900;
@@ -76,7 +80,8 @@ li {
 }
 
 .select {
-  padding: 10px 20px;
+  font-size: 1.2rem;
+  padding: 5px 20px;
   text-align: center;
 }
 
@@ -104,4 +109,8 @@ li {
 .input {
   border: none;
   font-size: 1.5rem;
+}
+
+.image {
+  width: 98%;
 }
