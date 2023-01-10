@@ -4,38 +4,45 @@
 const currencyOneEl = document.getElementById("currency-one");
 const currencyTwoEl = document.getElementById("currency-two");
 
-const amountOneEl = document.getElementById("amount-one");
-const amountTwoEl = document.getElementById("amount-two");
+const AmountOneEl = document.getElementById("amount-one");
+const AmountTwoEl = document.getElementById("amount-two");
 
 const rateEl = document.getElementById("rate");
 
 const btnSwap = document.getElementById("swap");
 
-const url =
-  "https://v6.exchangerate-api.com/v6/a0336ef9686b15b567f47254/latest/USD";
+const url = `https://v6.exchangerate-api.com/v6/a0336ef9686b15b567f47254/latest/`;
 
 // Function
 function calculate() {
-  const currencyOne = currencyOneEl.value;
-  const currencyTwo = currencyTwoEl.value;
+  let currencyOne = currencyOneEl.value;
+  let currencyTwo = currencyTwoEl.value;
 
-  fetch(url + `${currencyOne}`)
+  // fetch url
+  fetch(
+    `https://v6.exchangerate-api.com/v6/a0336ef9686b15b567f47254/latest/${currencyOne}`
+  )
     .then((response) => response.json())
     .then((data) => {
-      const rate = data.conversion_rates[currencyTwo];
+      let rate = data.conversion_rates[currencyTwo];
       rateEl.innerText = `1 ${currencyOne} = ${rate.toFixed(2)} ${currencyTwo}`;
-      amountTwoEl.value = (amountOneEl.value * rate).toFixed(2);
+
+      AmountTwoEl.value = (AmountOneEl.value * rate).toFixed(2);
     });
 }
 
-// AddEventListener
+// EventListener
+currencyOneEl.addEventListener("change", calculate);
+currencyTwoEl.addEventListener("change", calculate);
+AmountOneEl.addEventListener("input", calculate);
+AmountTwoEl.addEventListener("input", calculate);
 
+// btn
 btnSwap.addEventListener("click", () => {
-  const temp = currencyOneEl.value;
+  let temp = currencyOneEl.value;
   currencyOneEl.value = currencyTwoEl.value;
   currencyTwoEl.value = temp;
   calculate();
 });
 
 calculate();
-// Initial value
